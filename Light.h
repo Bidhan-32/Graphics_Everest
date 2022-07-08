@@ -16,7 +16,7 @@ Vec3f calculateIntensity(const Vec3f& Ka, const Vec3f& Kd, const Vec3f& Ks, cons
 	const Vec3f unitLight = lightVec.Normalize(lightVec);
 	const Vec3f diffuseColor = Kd * Il * normal.dot(unitLight);
 	const Vec3f reflection = (normal * 2.0 * normal.dot(unitLight)) - unitLight;
-	//HERE IS THE MISTAKE
+	
 	float power = pow(view.dot(reflection), ns);
 	const Vec3f specularColor = Ks * Il * power;
 	const Vec3f intensity = clamp(ambientColor + diffuseColor + specularColor);
